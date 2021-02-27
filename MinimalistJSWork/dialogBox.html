@@ -1,0 +1,44 @@
+<!DOCTHPE html>
+<html>
+    <head>
+        <title>dialog box</title>
+        
+        <style>
+            body {
+                text-align: center;
+            }
+            #dialog {
+                width: 250px;
+                margin: auto;
+                padding: 30px 20px;
+                text-align: center;
+                border: 1px solid #aaa;
+                box-shadow: 2px 2px 4px #888;
+            }
+        </style>
+    </head>
+    <body>
+       <form id="dialog" name="dialog">
+           <p>Click the button</p>
+           <input type="button" name="yes" value="Yes" />
+           <input type="button" name="no" value="No" />
+           <input type="button" name="cancel" value="Cancel" />
+       </form>
+       <p id="info"></p>
+       
+       <script>
+           const info = document.getElementById('info');
+           const form = document.forms.dialog;
+           
+           form.yes.addEventListener("click", () => {
+               info.textContent = "\"Yes\" was clicked";
+           });
+           form.no.addEventListener("click", () => {
+               info.textContent = "\"No\" was clicked";
+           });
+           form.cancel.addEventListener("click", () => {
+               info.textContent = "\"Cancel\" was clicked";
+           });
+       </script>
+    </body>
+</html>

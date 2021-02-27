@@ -1,0 +1,34 @@
+<!DOCTHPE html>
+<html>
+    <head>
+        <title>Total number of JavaScript-related repositories by GitHub</title>
+    </head>
+    <body>
+        <h1>Total number of JavaScript-related repositories by GitHub</h1>
+        
+        <button id="btn">update</button>
+        <div id="result"></div>
+        
+        <script>
+            const url = 'https://api.github.com/search/repositories?q=javascript';
+            const btn = document.getElementById('btn');
+            const result = document.getElementById('result');
+            
+            const createResult = item => {
+                const h2 = document.createElement('h2');
+                
+                h2.textContent = 'The total number of repositories is ' + item.total_count;
+                
+                result.appendChild(h2);
+            }
+            
+            btn.addEventListener('click', () => {
+                result.innerHTML = '';
+                
+                fetch(url)
+                .then(data => data.json())
+                .then(data => createResult(data))
+            })
+        </script>
+    </body>
+</html>

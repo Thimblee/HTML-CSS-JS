@@ -1,0 +1,28 @@
+<!DOCTHPE html>
+<html>
+    <head>
+        <title>word counter</title>
+        
+        <style>
+            body {
+                text-align: center;
+            }
+        </style>
+    </head>
+    
+    <body>
+      <textarea id="text" cols="50" rows="7"></textarea>
+      <p id="count">0words</p>
+      
+      <script>
+          const text = document.getElementById("text");
+          const count = document.getElementById("count");
+          
+          text.addEventListener("keyup", () => {
+              const inputText = text.value.replace(/[\n|\s]/g, "");
+              
+              count.textContent = inputText.length + "words";
+          });
+      </script>
+    </body>
+</html>
